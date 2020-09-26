@@ -6,10 +6,18 @@ import base64
 
 
 class Graph:
+    def __init__(self):
+        self._equations = []
+
     def input(self, equations: list):
+        self._equations = []
+        for equation in equations:
+            self._equations.append(str(equation))
+
+    def plot(self):
         # Create the vectors X and Y
         x = np.array(range(10))
-        for equation in equations:
+        for equation in self._equations:
             fn = Expression(equation, ["x"])
             y = fn(x)
             plt.plot(x, y)
@@ -32,10 +40,13 @@ class Graph:
 
         return base64.b64encode(img.getvalue())
 
+    def output(self):
+        fig = self.plot
+        fig.savefig('my_plot.png')
+        encoded = self.fig_to_base64(fig)
+        my_html = '<img src="data:image/png;base64, {}">'.format(encoded.decode('utf-8'))
+        return my_html
+
 
 if __name__ == '__main__':
-    graph = Graph()
-    fig = graph.input(["x**2"])
-    fig.savefig('my_plot.png')
-    encoded = graph.fig_to_base64(fig)
-    my_html = '<img src="data:image/png;base64, {}">'.format(encoded.decode('utf-8'))
+    pass
