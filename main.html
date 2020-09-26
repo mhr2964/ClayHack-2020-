@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Graphing Calculator</title>
+    <style>
+     h1 {text-align:center;text-decoration: underline;
+            font-family: "Lucida Console", Courier, monospace;}
+     label {margin-left: 80px; padding-top: 10px; padding-bottom: 10px;}
+     .inline{display:inline-block;}
+
+    </style>
+    <script>
+         function dis(val)
+         {
+             document.getElementById("graphequation1").value+=val
+         }
+    </script>
+ </head>
+  <body>
+    <h1>Graphing Calculator</h1>
+    <form>
+      <fieldset>
+        <legend>Equation Input</legend>
+          <label class= "inline"> Equation 1: </label>
+          <input type = "text"
+                 id = "graphequation1"
+                 value = "y = " />
+          <label class = "inline">Equation 2: </label>
+           <input type = "text"
+                 id = "graphequation2"
+                 value = "y = " />
+      </fieldset>
+      <fieldset>
+            <legend>Function Buttons</legend>
+                <div class="calculator__keys">
+                <input type="button" value="+" onclick="dis('+')"/>
+                <input type="button" value="-" onclick="dis('-')"/>
+                <input type="button" value="*" onclick="dis('*')"/>
+                <input type="button" value="/" onclick="dis('/')"/>
+                <input type="button" value="log()" onclick="dis('log(')"/>
+                <input type="button" value="ln()" onclick="dis('ln(')"/>
+                <input type="button" value="sin()" onclick="dis('sin(')"/>
+                <input type="button" value="cos()" onclick="dis('cos(')"/>
+                <input type="button" value="tan()" onclick="dis('tan(')"/>
+                <input type="button" value="^" onclick="dis('^')"/>
+                <input type="button" value="π" onclick="dis('π')"/>
+                </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
